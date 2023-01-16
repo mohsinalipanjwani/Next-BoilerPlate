@@ -1,0 +1,24 @@
+# EXAMPLE USAGE
+# Refer for explanation to following link:
+# https://github.com/evilmartians/lefthook/blob/master/docs/full_guide.md
+
+pre-commit:
+  parallel: true
+  commands:
+    type-check:
+      glob: "*.{ts,tsx}"
+      run: yarn type-check
+    eslint:
+      glob: "*.{js,ts,jsx,tsx}"
+      run: yarn lint --fix
+    spelling:
+      glob: "*.{js,ts,jsx,tsx,md}"
+      run: yarn cspell {staged_files}
+
+commit-msg:
+  parallel: true
+  commands:
+    lint-commit-msg:
+      run: npx commitlint --edit
+    spell-check:
+      run: yarn cspell --no-summary {1}
