@@ -1,6 +1,6 @@
 # Next-BoilerPlate
 
-Added React Query
+Added React Query  
 Added material UI
 Implemnet Dark Mode
 Implement MultiLanguage
