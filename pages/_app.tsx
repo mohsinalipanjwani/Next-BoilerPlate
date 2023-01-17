@@ -12,9 +12,9 @@ import { Hydrate } from "react-query/hydration";
 
 import ThemeContextProvider from "contexts/ThemeContext";
 import { getLocale, getMessages } from "i18n";
-import { initAnalytics } from "../platform/analytics";
 import { initFirebase } from "platform/initFirebase";
 import ThemeProvider from "theme/Provider";
+import { initAnalytics } from "../platform/analytics";
 
 const loadSideEffects = () => {
   // firebase initialization
@@ -102,21 +102,21 @@ class MyApp extends App<{
           <ThemeProvider>
             <IntlProvider locale={locale || "en"} messages={messages}>
               <SessionProvider session={session}>
-              {/* <AuthContextProvider> */}
-                  <QueryClientProvider client={queryClient}>
-                    <SnackbarProvider
-                      anchorOrigin={{
-                        vertical: "top",
-                        horizontal: "right",
-                      }}
-                    >
-                      <Hydrate state={pageProps.dehydratedState}>
-                          <Component {...pageProps} />
-                      </Hydrate>
-                    </SnackbarProvider>
-                    <ReactQueryDevtools initialIsOpen={false} />
-                  </QueryClientProvider>
-                  {/* <AuthContextProvider> */}
+                {/* <AuthContextProvider> */}
+                <QueryClientProvider client={queryClient}>
+                  <SnackbarProvider
+                    anchorOrigin={{
+                      vertical: "top",
+                      horizontal: "right",
+                    }}
+                  >
+                    <Hydrate state={pageProps.dehydratedState}>
+                      <Component {...pageProps} />
+                    </Hydrate>
+                  </SnackbarProvider>
+                  <ReactQueryDevtools initialIsOpen={false} />
+                </QueryClientProvider>
+                {/* <AuthContextProvider> */}
               </SessionProvider>
             </IntlProvider>
           </ThemeProvider>
