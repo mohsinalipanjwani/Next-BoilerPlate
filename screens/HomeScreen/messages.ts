@@ -11,7 +11,7 @@ export const scope = "app.screens.HomeScreen";
 export default defineMessages({
   title: {
     id: `${scope}.title`,
-    defaultMessage: "Home Scereen",
+    defaultMessage: "Home Screen",
   },
   description: {
     id: `${scope}.description`,
